@@ -1,0 +1,26 @@
+
+<div class="row justify-content-center">
+    <div class="col-5">
+        <ul class="list-group list-group-flush">
+            {{#each burgerListed }}
+                <li class="list-group-item pb-0 border-0 bg-warning">
+                    <div class="input-group"> <!--{{name}} {{price}} {{awesomeness}}-->
+                        <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+                        <div class="input-group-append">
+                            <button class="btn btn-success btn-sm" type="button">Devour!</button>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="col-5">
+        <ul class="list-group list-group-flush">
+            {{#each burgerListed }}
+                <li class="list-group-item border-bottom border-dark bg-warning">placeholder burger</li>
+            {{/each}}
+        </ul>
+    </div>
+
+</div>

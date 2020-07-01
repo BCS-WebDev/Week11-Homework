@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Burger Helper</title>
+</head>
+
+<body class="bg-warning">
+    <div class="jumbotron mb-0 pb-2 bg-warning">
+        <img class="mx-auto d-block" src="../../public/assets/burger.png" alt="burger">
+        <h1 class="mt-2 mb-4 text-center text-danger">Eat-Da-Burger!</h1>
+    </div>
+    
+    <div class="container-fluid bg-warning">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-10">
+                {{{ body }}}
+            </div>
+        </div>
+
+        <div class="row justify-content-center w-100 mx-0">
+            <div class="col-4">
+                <div class="form-group">
+                    <textarea class="form-control" id="burgerInput" rows="1"></textarea>
+                </div>
+            </div>
+
+            <div class="col-12 text-center">
+                <button class="btn btn-success">List your Burger!</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
