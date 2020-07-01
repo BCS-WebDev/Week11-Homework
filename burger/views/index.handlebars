@@ -1,13 +1,13 @@
 
 <div class="row justify-content-center">
     <div class="col-5">
-        <ul class="list-group list-group-flush">
-            {{#each burgerListed }}
+        <ul id="devour" class="list-group list-group-flush">
+            {{#each burgersListed }}
                 <li class="list-group-item pb-0 border-0 bg-warning">
-                    <div class="input-group"> <!--{{name}} {{price}} {{awesomeness}}-->
-                        <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="{{ @index }}. {{ burger_name }}" readonly>
                         <div class="input-group-append">
-                            <button class="btn btn-success btn-sm" type="button">Devour!</button>
+                            <button class="btn btn-success btn-sm" type="button" data-burgerid="{{ id }}">Devour!</button>
                         </div>
                     </div>
                 </li>
@@ -17,8 +17,8 @@
 
     <div class="col-5">
         <ul class="list-group list-group-flush">
-            {{#each burgerListed }}
-                <li class="list-group-item border-bottom border-dark bg-warning">placeholder burger</li>
+            {{#each burgersDevoured }}
+                <li class="list-group-item border-bottom border-dark bg-warning">{{ @index }}. {{ burger_name }}</li>
             {{/each}}
         </ul>
     </div>

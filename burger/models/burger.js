@@ -1,28 +1,30 @@
 
-var model = require("../config/connection.js");
+const model = require("../config/connection.js");   // load burger model
 
 const burger = {
-    get: async function(column, table) {
+    getAll: async function() {
         try {
-            const specific = await model.findOne({
-                where: {
-                    routeName: req.params.characters
-                }
+            return await model.findAll();
+        } catch (err) {
+            if (err) throw err;
+        }
+    },
+    add: async function(burgerName) {
+        try {
+            await model.create({
+                burger_name: burgerName,
+                devoured: false
             });
         } catch (err) {
             if (err) throw err;
         }
     },
-    // get 
-    add: async function() {
+    update: async function(burgerId) {
         try {
-            // Then send it to the ORM to "save" into the DB.
-            await model.create({
-                routeName: routeName,
-                name: character.name,
-                role: character.role,
-                age: character.age,
-                forcePoints: character.forcePoints
+            await model.update({ devoured: true }, {
+                where: {
+                    id: burgerId,
+                }
             });
         } catch (err) {
             if (err) throw err;

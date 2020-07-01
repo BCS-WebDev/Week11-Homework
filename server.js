@@ -1,6 +1,6 @@
 
 var express = require("express");  // load express module
-var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");  // load express handlebars
 
 // server setup
 var app = express();
@@ -22,7 +22,7 @@ app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
 
 // routes
-require("./burger/burger-controller.js")(app);
+require("./burger/controllers/burger-controller.js")(app);
 
 // begin listening
 app.listen(PORT, function() {
