@@ -13,14 +13,5 @@ const source = new Sequelize("burgers_db", "root", "!Kc88107", {
     }
 });
 
-// Creates a "Chirp" model that matches up with DB
-const burgers = source.define("burgers", {
-    burger_name: Sequelize.STRING,
-    devoured: Sequelize.BOOLEAN
-});
-
-// Syncs with DB
-burgers.sync();
-
 // Exporting our connection
-module.exports = burgers;
+module.exports = source;
