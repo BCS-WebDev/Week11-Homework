@@ -4,10 +4,13 @@ const burgers = require("../models/burger.js");  // load burgers model
 // Routes
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        await burgers.findAll().then(function(data) {
+        burgers.findAll({
+            attributes: [ 'id', 'burger_name', 'devoured']
+        }).then(function(data) {
             const burgersListed = [];
             const burgersDevoured = [];
-            for (const item in data) {
+
+            for (const item of data) {
                 if (item.devoured === false) {
                     burgersListed.push({
                         id: item.id,
@@ -28,21 +31,21 @@ module.exports = function(app) {
     });
     
     app.post("/:newBurger", function(req, res) {
-        await burgers.create({
+        burgers.create({
             burger_name: req.params.newBurger,
             devoured: false
-        }).then(function() {
-            res.redirect(`/`);
+        }).then(function(data) {
+            res.send("Burger Added.");
         });        
     });
         
     app.put("/:burgerId", function(req, res) {
-        await burgers.update({ devoured: true }, {
+        burgers.update({ devoured: true }, {
             where: {
                 id: req.params.burgerId,
             }
-        }).then(function() {
-            res.redirect(`/`);
+        }).then(function(data) {
+            res.send("Burger updated.");
         });
     });
 };

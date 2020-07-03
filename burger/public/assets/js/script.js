@@ -7,7 +7,8 @@ $(document).ready(function() {
         const newBurger = $("#burgerInput").val().trim();
         $.post(`/${newBurger}`, function(response) {
             console.log(response);
-        });  
+            window.location.reload();
+        });
     });
 
     $("#devour").on("click", function(event) {
@@ -15,8 +16,12 @@ $(document).ready(function() {
         
         const burgerId = event.target.dataset.burgerid;
       
-        $.put(`/${burgerId}`, function(response) {
+        $.ajax({
+            url: `/${burgerId}`,
+            type: 'PUT',
+        }).then(function(response){
             console.log(response);
+            window.location.reload();
         });
     });
 });

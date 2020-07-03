@@ -1,28 +1,33 @@
 
-var express = require("express");  // load express module
-var exphbs = require("express-handlebars");  // load express handlebars
+const express = require("express");  // load express module
+const exphbs = require("express-handlebars");  // load express handlebars
+const path = require("path");     // load path module
 
 // server setup
-var app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 // setup to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// handlebars engine properties
-const handlebars = exphbs.create({
-    extname      :'hbs',
-    layoutsDir   : './burger/views',
-    defaultLayout: 'main'
-});
+app.use(express.static( __dirname + '/burger/public'));
 
 // handlebars
-app.engine("handlebars", handlebars.engine);
+app.engine("handlebars",
+    exphbs({
+        defaultLayout: "main",
+        helpers: {
+            inc: function(value) {
+              return parseInt(value) + 1;
+            }
+        }
+    })
+);
 app.set("view engine", "handlebars");
+app.set('views', path.join(__dirname, "burger/views"));
 
 // routes
-require("./burger/controllers/burger-controller.js")(app);
+require("./burger/controllers/burger_controller.js")(app);
 
 // begin listening
 app.listen(PORT, function() {
