@@ -26,6 +26,7 @@ via the webpage.
 Install `node.js` and run `npm install` to install the necessary node packages.
 
 * Installs:
+    - mysql node package
     - mysql2 node package
     - sequelize node package
     - express node package
@@ -33,10 +34,13 @@ Install `node.js` and run `npm install` to install the necessary node packages.
     - path node package
 
 ## Usage
-- Log into MySQL Workbench and run the schema in `schema.sql` located in burger/db.
-- Open `connection.js` located in burger/config and enter your MySQL connection info & credentials.
-- Run `node server.js` to start the server.
-- Open a web browser and navigate to localhost:8080.
+* For local development:
+    - Log into MySQL Workbench and run the schema in `schema.sql` located in burger/seeders.
+    - Open `config.json` located in burger/config and enter your MySQL connection info & credentials for local development.
+    - Run `node server.js` to start the server.
+    - Open a web browser and navigate to localhost:8080.
+* For use:
+    - https://ancient-mesa-54039.herokuapp.com/
 
 ## Questions
 Contact: kevin1choi@gmail.com
