@@ -29,7 +29,12 @@ app.set('views', path.join(__dirname, "burger/views"));
 // routes
 require("./burger/controllers/burger_controller.js")(app);
 
-// begin listening
-app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+// Requiring our models for syncing
+const db = require("./burger/models");
+
+// sync then begin listening
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+    });
 });

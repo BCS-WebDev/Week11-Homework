@@ -1,10 +1,10 @@
 
-const burgers = require("../models/burger.js");  // load burgers model
+const db = require("../models");  // load db models
 
 // Routes
 module.exports = function(app) {
     app.get("/", function(req, res) {      // get route
-        burgers.findAll({     // find all and return id, name, devoured
+        db.Burgers.findAll({     // find all and return id, name, devoured
             attributes: [ 'id', 'burger_name', 'devoured']  
         }).then(function(data) {
             const burgersListed = [];     // listed burgers array
@@ -31,7 +31,7 @@ module.exports = function(app) {
     });
     
     app.post("/:newBurger", function(req, res) {  // post route
-        burgers.create({    // add new burger with new burger parameter and devoured = false
+        db.Burgers.create({    // add new burger with new burger parameter and devoured = false
             burger_name: req.params.newBurger,
             devoured: false
         }).then(function(data) {     
@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
         
     app.put("/:burgerId", function(req, res) {   // update route
-        burgers.update({ devoured: true }, {      // update burger devoured to true
+        db.Burgers.update({ devoured: true }, {      // update burger devoured to true
             where: {
                 id: req.params.burgerId,        // based on id parameter
             }

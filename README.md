@@ -22,9 +22,6 @@ connection.js, which will be required in burger.js where a model for the app wil
 burger model will then be exported to a controller for routing, which will be accessed by the user
 via the webpage.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; One thing to consider is that our credentials to our database
-is not masked as there is no sensitive information. We will address this as needed in future projects.
-
 ## Installation
 Install `node.js` and run `npm install` to install the necessary node packages.
 
