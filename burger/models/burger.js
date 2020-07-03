@@ -1,6 +1,6 @@
 
 const db = require("../config/connection.js");   // load burger model
-const Sequelize = require("sequelize");
+const Sequelize = require("sequelize");   // load sequelize moduel
 
 // create burgers model
 const burgers = db.define("burgers", {

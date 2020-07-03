@@ -2,7 +2,7 @@
 const Sequelize = require("sequelize");  // load sequelize module
 
 // Setting up our connection information
-const source = new Sequelize("burgers_db", "root", "!Kc88107", {
+const source = new Sequelize("burgers_db", "root", "", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
