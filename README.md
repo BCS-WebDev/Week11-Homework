@@ -1,6 +1,8 @@
 # Node Express Handlebars
 BootCampSpot Web Development - Week 11 Homework
 
+![Preview](https://github.com/BCS-WebDev/Week11-Homework/blob/master/burger/BurgerHelper.gif)
+
 ## Notes on Sequelize & Modularization
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This project is our first full stack project where we create
 each part of a web application starting from the front facing webpage to the data management
